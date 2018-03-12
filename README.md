@@ -21,8 +21,7 @@ The notebook ```process_results``` reads from ```results.txt``` and examines the
 ### contact
 
 For any questions, feel free to email ccoley@mit.edu
-
-
+ 
 ### Comments From xg590@nyu.edu
 The following ipynbs are for playing with the knowledge base (reaction precedents)
 1. retrosim/retrosim/scripts/extract_templates.ipynb # Read data/data_processed.csv and write to data/templates_general.json
