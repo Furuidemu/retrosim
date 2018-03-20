@@ -29,7 +29,17 @@ class rdchiralReaction():
 
         # Call template_atom_could_have_been_tetra to pre-assign value to atom
         [template_atom_could_have_been_tetra(a) for a in self.template_r.GetAtoms()]
-        [template_atom_could_have_been_tetra(a) for a in self.template_p.GetAtoms()]
+        [template_atom_could_have_been_tetra(a) for a in self.template_p.GetAtoms()] 
+        
+    def deleteUnpicklableAttributes(self):
+        # Define molAtomMapNumber->atom dictionary for template rct and prd
+        del self.atoms_rt_map, self.atoms_pt_map
+        
+    def addUnpicklableAttributes(self):
+        # Define molAtomMapNumber->atom dictionary for template rct and prd
+        self.atoms_rt_map = {a.GetIntProp('molAtomMapNumber'): a for a in self.template_r.GetAtoms() if a.HasProp('molAtomMapNumber')}
+        self.atoms_pt_map = {a.GetIntProp('molAtomMapNumber'): a for a in self.template_p.GetAtoms() if a.HasProp('molAtomMapNumber')}
+
 
 class rdchiralReactants():
     '''
